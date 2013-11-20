@@ -7,11 +7,21 @@
 //
 
 #import "BPPAppDelegate.h"
+#import "BPPEyeFiConnector.h"
+
+#import "HTTPServer.h"
 
 @implementation BPPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Initalize our http server
+	_httpServer = [[HTTPServer alloc] init];
+	[_httpServer setConnectionClass:[BPPEyeFiConnector class]];
+    [_httpServer setType:@"_http._tcp."];
+	[_httpServer setPort:59278];
+    [_httpServer start:nil];
+    
     // Override point for customization after application launch.
     return YES;
 }

@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class HTTPServer;
+
 @interface BPPAppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (strong, nonatomic) HTTPServer *httpServer;
 @property (strong, nonatomic) UIWindow *window;
 
 @end

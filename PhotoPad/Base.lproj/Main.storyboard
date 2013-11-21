@@ -1,53 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4451" systemVersion="13A461" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="aVO-UE-KGo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4511" systemVersion="13A598" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="RTl-KA-cyl">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3676"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3745"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier Main View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="InF-ad-Ayx">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="RTl-KA-cyl" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Xnm-vc-0Yl">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="aVO-UE-KGo" kind="relationship" relationship="rootViewController" id="VkU-fs-rpN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2r2-Ro-wxc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1006" y="15"/>
+        </scene>
+        <!--Main View Controller - Browse All Photos-->
         <scene sceneID="0NU-cZ-2PS">
             <objects>
                 <viewController id="aVO-UE-KGo" customClass="BPPMainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ToO-l9-pLj"/>
+                        <viewControllerLayoutGuide type="bottom" id="wQI-IY-FJO"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mX8-Ee-eGC">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="S2d-ll-A4h">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="1AQ-Iv-sif">
-                                        <barButtonItem key="rightBarButtonItem" title="Info" id="eoT-a4-CEx">
-                                            <connections>
-                                                <action selector="togglePopover:" destination="aVO-UE-KGo" id="VBk-0g-Jb3"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="S2d-ll-A4h" firstAttribute="top" secondItem="mX8-Ee-eGC" secondAttribute="top" id="Kzf-4S-Y7T"/>
-                            <constraint firstItem="S2d-ll-A4h" firstAttribute="leading" secondItem="mX8-Ee-eGC" secondAttribute="leading" id="jbs-cd-p3c"/>
-                            <constraint firstItem="S2d-ll-A4h" firstAttribute="trailing" secondItem="mX8-Ee-eGC" secondAttribute="trailing" id="sah-fe-1aa"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Browse All Photos" id="dCg-GS-7iL"/>
                     <connections>
-                        <segue destination="FTa-do-hRx" kind="popover" identifier="showAlternate" popoverAnchorBarButtonItem="eoT-a4-CEx" id="pXF-iP-W5x">
+                        <segue destination="FTa-do-hRx" kind="popover" identifier="showAlternate" id="pXF-iP-W5x">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asY-HQ-Guj" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-286" y="15"/>
+            <point key="canvasLocation" x="-102" y="15"/>
         </scene>
-        <!--class Prefix:identifier Flipside View Controller-->
+        <!--Flipside View Controller-->
         <scene sceneID="lym-h4-kxm">
             <objects>
                 <viewController id="FTa-do-hRx" customClass="BPPFlipsideViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rYl-Sr-IfY"/>
+                        <viewControllerLayoutGuide type="bottom" id="WGd-ee-Ci9"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yVM-ax-DI8">
-                        <rect key="frame" x="0.0" y="20" width="320" height="832"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="8Bx-U8-Xwy">

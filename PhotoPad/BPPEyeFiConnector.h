@@ -12,5 +12,6 @@
 @interface BPPEyeFiConnector : HTTPConnection
 
 @property (strong, nonatomic) NSData *postData;
+@property (nonatomic) NSOperationQueue *parseQueue;
 
 @end

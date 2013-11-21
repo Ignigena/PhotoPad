@@ -11,6 +11,7 @@
 //
 
 #import "BPPEyeFiConnector.h"
+#import "BPPEyeFiResponseParse.h"
 #import "HTTPDataResponse.h"
 
 @implementation BPPEyeFiConnector
@@ -23,15 +24,17 @@
 - (void)processBodyData:(NSData *)postDataChunk
 {
     _postData = postDataChunk;
-    NSLog(@"%@", [[NSString alloc] initWithData:postDataChunk encoding:NSUTF8StringEncoding]);
 }
 
 - (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path
 {
-    if ([path isEqualToString: @"/api/soap/eyefilm/v1"]) {
-        return [[HTTPDataResponse alloc] initWithData:[[NSString stringWithFormat:@"communication method: %@", [[NSString alloc] initWithData:_postData encoding:NSUTF8StringEncoding]] dataUsingEncoding:NSUTF8StringEncoding]];
-    } else if ([path isEqualToString: @"/api/soap/eyefilm/upload"]) {
-        return [[HTTPDataResponse alloc] initWithData:[@"upload data" dataUsingEncoding:NSUTF8StringEncoding]];
+    if ([path isEqualToString: @"/api/soap/eyefilm/v1"] || [path isEqualToString: @"/api/soap/eyefilm/upload"]) {
+        self.parseQueue = [NSOperationQueue new];
+        BPPEyeFiResponseParse *parseOperation = [[BPPEyeFiResponseParse alloc] initWithData:self.postData];
+        [self.parseQueue addOperation:parseOperation];
+        [self.parseQueue waitUntilAllOperationsAreFinished];
+        
+        return [[HTTPDataResponse alloc] initWithData:[[NSString stringWithFormat:@"communication method: %@ payload: %@", parseOperation.eyeFiMethod, parseOperation.eyeFiPayload] dataUsingEncoding:NSUTF8StringEncoding]];
     }
     return FALSE;
 }

@@ -51,6 +51,7 @@
 		4D784B8C183D7319007FB05A /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D784B70183D7319007FB05A /* DispatchQueueLogFormatter.m */; };
 		4D784B8D183D7319007FB05A /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4D784B71183D7319007FB05A /* README.txt */; };
 		4D784B90183D7348007FB05A /* BPPEyeFiConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D784B8F183D7348007FB05A /* BPPEyeFiConnector.m */; };
+		863ED8A1183D973200AB7A6A /* BPPEyeFiResponseParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8A0183D973200AB7A6A /* BPPEyeFiResponseParse.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,8 @@
 		4D784B71183D7319007FB05A /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		4D784B8E183D7348007FB05A /* BPPEyeFiConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPEyeFiConnector.h; sourceTree = "<group>"; };
 		4D784B8F183D7348007FB05A /* BPPEyeFiConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPEyeFiConnector.m; sourceTree = "<group>"; };
+		863ED89F183D973200AB7A6A /* BPPEyeFiResponseParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPEyeFiResponseParse.h; sourceTree = "<group>"; };
+		863ED8A0183D973200AB7A6A /* BPPEyeFiResponseParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPEyeFiResponseParse.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +209,8 @@
 				4D784B09183D72D1007FB05A /* BPPAppDelegate.m */,
 				4D784B8E183D7348007FB05A /* BPPEyeFiConnector.h */,
 				4D784B8F183D7348007FB05A /* BPPEyeFiConnector.m */,
+				863ED89F183D973200AB7A6A /* BPPEyeFiResponseParse.h */,
+				863ED8A0183D973200AB7A6A /* BPPEyeFiResponseParse.m */,
 				4D784B0B183D72D1007FB05A /* Main.storyboard */,
 				4D784B0E183D72D1007FB05A /* BPPMainViewController.h */,
 				4D784B0F183D72D1007FB05A /* BPPMainViewController.m */,
@@ -506,6 +511,7 @@
 				4D784B79183D7319007FB05A /* MultipartFormDataParser.m in Sources */,
 				4D784B90183D7348007FB05A /* BPPEyeFiConnector.m in Sources */,
 				4D784B13183D72D1007FB05A /* BPPFlipsideViewController.m in Sources */,
+				863ED8A1183D973200AB7A6A /* BPPEyeFiResponseParse.m in Sources */,
 				4D784B88183D7319007FB05A /* DDFileLogger.m in Sources */,
 				4D784B89183D7319007FB05A /* DDLog.m in Sources */,
 				4D784B82183D7319007FB05A /* WebSocket.m in Sources */,
@@ -723,6 +729,7 @@
 				4D784B2D183D72D1007FB05A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D784B2E183D72D1007FB05A /* Build configuration list for PBXNativeTarget "PhotoPadTests" */ = {
 			isa = XCConfigurationList;
@@ -731,6 +738,7 @@
 				4D784B30183D72D1007FB05A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

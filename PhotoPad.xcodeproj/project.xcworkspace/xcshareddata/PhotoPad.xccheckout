@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>39B62F94-5FC7-4949-81BA-882A029AE645</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PhotoPad</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7F8D478A-293F-4AF4-AE48-CC9CBDE7309D</key>
+		<string>https://github.com/robbiehanson/CocoaHTTPServer.git</string>
+		<key>C50B245E-05C7-4BB5-944D-490770BAAF47</key>
+		<string>https://github.com/Ignigena/PhotoPad.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PhotoPad.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7F8D478A-293F-4AF4-AE48-CC9CBDE7309D</key>
+		<string>../../../CocoaHTTPServer</string>
+		<key>C50B245E-05C7-4BB5-944D-490770BAAF47</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Ignigena/PhotoPad.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C50B245E-05C7-4BB5-944D-490770BAAF47</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7F8D478A-293F-4AF4-AE48-CC9CBDE7309D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CocoaHTTPServer</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C50B245E-05C7-4BB5-944D-490770BAAF47</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PhotoPad</string>
+		</dict>
+	</array>
+</dict>
+</plist>

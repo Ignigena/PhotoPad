@@ -17,13 +17,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(updateTitle)
+                                                name:UIApplicationDidBecomeActiveNotification
+                                              object:nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)updateTitle
+{
+    NSUserDefaults * standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *windowTitle = [standardUserDefaults objectForKey:@"window_title"];
+    self.navigationController.navigationBar.topItem.title = (windowTitle) ? windowTitle : @"Browse All Photos";
 }
 
 #pragma mark - Flipside View Controller

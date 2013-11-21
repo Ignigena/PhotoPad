@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="EyeFi/SOAP/EyeFilm">
+  <SOAP-ENV:Body>
+    <ns1:GetPhotoStatus>
+      <credential>2d7b2e9f6755a1a51152a32a2d4e98a6</credential>
+      <macaddress>001856417729</macaddress>
+      <filename>P1030007.JPG.tar</filename>
+      <filesize>1269760</filesize>
+      <filesignature>343afd9e4e84d3d4f5969cd97214f7f2</filesignature>
+      <flags>4</flags>
+    </ns1:GetPhotoStatus>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

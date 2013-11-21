@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <ns1:GetPhotoStatusResponse xmlns:ns1="http://localhost/api/soap/eyefilm">
+      <fileid>1</fileid>
+      <offset>0</offset>
+    </ns1:GetPhotoStatusResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

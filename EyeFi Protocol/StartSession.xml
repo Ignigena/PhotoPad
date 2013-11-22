@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="EyeFi/SOAP/EyeFilm">
-  <SOAP-ENV:Body>
-    <ns1:StartSession>
-      <macaddress>001856417729</macaddress>
-      <cnonce>8744904b7ea202439631c67186690a1e</cnonce>
-      <transfermode>2</transfermode>
-      <transfermodetimestamp>1304505230</transfermodetimestamp>
-    </ns1:StartSession>
-  </SOAP-ENV:Body>
+  <SOAP-ENV:Body>
+    <ns1:StartSession>
+      <macaddress>0018566016f7</macaddress>
+      <cnonce>59582410a9e3fc2cf32a143c4476dc38</cnonce>
+      <transfermode>33314</transfermode>
+      <transfermodetimestamp>1385074244</transfermodetimestamp>
+    </ns1:StartSession>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>

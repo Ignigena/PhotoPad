@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="EyeFi/SOAP/EyeFilm">
-  <SOAP-ENV:Body>
-    <ns1:UploadPhoto>
-      <fileid>1</fileid>
-      <macaddress>001856417729</macaddress>
-      <filename>P1030007.JPG.tar</filename>
-      <filesize>1269760</filesize>
-      <filesignature>c8340300c434030000000000dced0300</filesignature>
-      <encryption>none</encryption>
-      <flags>4</flags>
-    </ns1:UploadPhoto>
-  </SOAP-ENV:Body>
+  <SOAP-ENV:Body>
+    <ns1:UploadPhoto>
+      <fileid>10</fileid>
+      <macaddress>0018566016f7</macaddress>
+      <filename>DSC_0010.JPG.tar</filename>
+      <filesize>332800</filesize>
+      <filesignature>35310000a0e9020000000000e8cf0200</filesignature>
+      <encryption>none</encryption>
+      <flags>4</flags>
+    </ns1:UploadPhoto>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>

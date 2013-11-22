@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="EyeFi/SOAP/EyeFilm">
-  <SOAP-ENV:Body>
-    <ns1:MarkLastPhotoInRoll>
-      <macaddress>001856417729</macaddress>
-      <mergedelta>0</mergedelta>
-    </ns1:MarkLastPhotoInRoll>
-  </SOAP-ENV:Body>
+  <SOAP-ENV:Body>
+    <ns1:MarkLastPhotoInRoll>
+      <macaddress>0018566016f7</macaddress>
+      <mergedelta>0</mergedelta>
+    </ns1:MarkLastPhotoInRoll>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>

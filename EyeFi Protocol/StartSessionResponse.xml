@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-  <SOAP-ENV:Body>
-    <ns1:StartSessionResponse xmlns:ns1="http://localhost/api/soap/eyefilm">
-      <credential>0d400f69ce6096c3771f9465c6123145</credential>
-      <snonce>d5b2b8dd7a681cfb5320aaac2fd9bba4</snonce>
-      <transfermode>2</transfermode>
-      <transfermodetimestamp>1304505230</transfermodetimestamp>
-      <upsyncallowed>false</upsyncallowed>
-    </ns1:StartSessionResponse>
-  </SOAP-ENV:Body>
+  <SOAP-ENV:Body>
+    <StartSessionResponse xmlns="http://localhost/api/soap/eyefilm">
+      <credential>0421c96a6cd34a55d2d8a42d451d4d2c</credential>
+      <snonce>818e181012f1dbf4f6265b9ca9545f9f</snonce>
+      <transfermode>33314</transfermode>
+      <transfermodetimestamp>1385074245</transfermodetimestamp>
+      <upsyncallowed>true</upsyncallowed>
+    </StartSessionResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>

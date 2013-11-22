@@ -54,7 +54,11 @@
 		863ED8A1183D973200AB7A6A /* BPPEyeFiResponseParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8A0183D973200AB7A6A /* BPPEyeFiResponseParse.m */; };
 		863ED8A3183DAC7800AB7A6A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 863ED8A2183DAC7800AB7A6A /* Settings.bundle */; };
 		863ED8A6183DB66000AB7A6A /* UIColor_Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8A5183DB66000AB7A6A /* UIColor_Hex.m */; };
-		863ED8AC183ECC2D00AB7A6A /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8AB183ECC2D00AB7A6A /* NSString+MD5.m */; };
+		863ED8A8183EC90000AB7A6A /* StartSession.xml in Resources */ = {isa = PBXBuildFile; fileRef = 863ED8A7183EC90000AB7A6A /* StartSession.xml */; };
+		863ED8B2183EDBFF00AB7A6A /* BPPEyeFiResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8B1183EDBFF00AB7A6A /* BPPEyeFiResponse.m */; };
+		863ED8B5183EF60200AB7A6A /* NSString+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8B4183EF60200AB7A6A /* NSString+Hex.m */; };
+		863ED8C0183F087A00AB7A6A /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8BD183F087A00AB7A6A /* NSData+MD5.m */; };
+		863ED8C1183F087A00AB7A6A /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8BF183F087A00AB7A6A /* NSString+MD5.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,8 +155,15 @@
 		863ED8A2183DAC7800AB7A6A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		863ED8A4183DB66000AB7A6A /* UIColor_Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColor_Hex.h; sourceTree = "<group>"; };
 		863ED8A5183DB66000AB7A6A /* UIColor_Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColor_Hex.m; sourceTree = "<group>"; };
-		863ED8AA183ECC2D00AB7A6A /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
-		863ED8AB183ECC2D00AB7A6A /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		863ED8A7183EC90000AB7A6A /* StartSession.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = StartSession.xml; path = Responses/StartSession.xml; sourceTree = "<group>"; };
+		863ED8B0183EDBFF00AB7A6A /* BPPEyeFiResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPEyeFiResponse.h; sourceTree = "<group>"; };
+		863ED8B1183EDBFF00AB7A6A /* BPPEyeFiResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPEyeFiResponse.m; sourceTree = "<group>"; };
+		863ED8B3183EF60200AB7A6A /* NSString+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hex.h"; sourceTree = "<group>"; };
+		863ED8B4183EF60200AB7A6A /* NSString+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hex.m"; sourceTree = "<group>"; };
+		863ED8BC183F087A00AB7A6A /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
+		863ED8BD183F087A00AB7A6A /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
+		863ED8BE183F087A00AB7A6A /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		863ED8BF183F087A00AB7A6A /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +228,8 @@
 				4D784B09183D72D1007FB05A /* BPPAppDelegate.m */,
 				4D784B8E183D7348007FB05A /* BPPEyeFiConnector.h */,
 				4D784B8F183D7348007FB05A /* BPPEyeFiConnector.m */,
+				863ED8B0183EDBFF00AB7A6A /* BPPEyeFiResponse.h */,
+				863ED8B1183EDBFF00AB7A6A /* BPPEyeFiResponse.m */,
 				863ED89F183D973200AB7A6A /* BPPEyeFiResponseParse.h */,
 				863ED8A0183D973200AB7A6A /* BPPEyeFiResponseParse.m */,
 				4D784B0B183D72D1007FB05A /* Main.storyboard */,
@@ -227,8 +240,13 @@
 				4D784B14183D72D1007FB05A /* Images.xcassets */,
 				863ED8A4183DB66000AB7A6A /* UIColor_Hex.h */,
 				863ED8A5183DB66000AB7A6A /* UIColor_Hex.m */,
-				863ED8AA183ECC2D00AB7A6A /* NSString+MD5.h */,
-				863ED8AB183ECC2D00AB7A6A /* NSString+MD5.m */,
+				863ED8BC183F087A00AB7A6A /* NSData+MD5.h */,
+				863ED8BD183F087A00AB7A6A /* NSData+MD5.m */,
+				863ED8BE183F087A00AB7A6A /* NSString+MD5.h */,
+				863ED8BF183F087A00AB7A6A /* NSString+MD5.m */,
+				863ED8B3183EF60200AB7A6A /* NSString+Hex.h */,
+				863ED8B4183EF60200AB7A6A /* NSString+Hex.m */,
+				863ED8A9183EC95B00AB7A6A /* EyeFi Responses */,
 				4D784B00183D72D1007FB05A /* Supporting Files */,
 			);
 			path = PhotoPad;
@@ -400,6 +418,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		863ED8A9183EC95B00AB7A6A /* EyeFi Responses */ = {
+			isa = PBXGroup;
+			children = (
+				863ED8A7183EC90000AB7A6A /* StartSession.xml */,
+			);
+			name = "EyeFi Responses";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -483,6 +509,7 @@
 				4D784B0D183D72D1007FB05A /* Main.storyboard in Resources */,
 				4D784B8D183D7319007FB05A /* README.txt in Resources */,
 				4D784B85183D7319007FB05A /* About.txt in Resources */,
+				863ED8A8183EC90000AB7A6A /* StartSession.xml in Resources */,
 				863ED8A3183DAC7800AB7A6A /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,7 +544,6 @@
 				4D784B78183D7319007FB05A /* HTTPServer.m in Sources */,
 				4D784B8A183D7319007FB05A /* DDTTYLogger.m in Sources */,
 				4D784B8C183D7319007FB05A /* DispatchQueueLogFormatter.m in Sources */,
-				863ED8AC183ECC2D00AB7A6A /* NSString+MD5.m in Sources */,
 				4D784B73183D7319007FB05A /* DDNumber.m in Sources */,
 				4D784B0A183D72D1007FB05A /* BPPAppDelegate.m in Sources */,
 				4D784B8B183D7319007FB05A /* ContextFilterLogFormatter.m in Sources */,
@@ -530,9 +556,13 @@
 				863ED8A1183D973200AB7A6A /* BPPEyeFiResponseParse.m in Sources */,
 				4D784B88183D7319007FB05A /* DDFileLogger.m in Sources */,
 				4D784B89183D7319007FB05A /* DDLog.m in Sources */,
+				863ED8B2183EDBFF00AB7A6A /* BPPEyeFiResponse.m in Sources */,
 				4D784B82183D7319007FB05A /* WebSocket.m in Sources */,
+				863ED8C0183F087A00AB7A6A /* NSData+MD5.m in Sources */,
+				863ED8C1183F087A00AB7A6A /* NSString+MD5.m in Sources */,
 				4D784B80183D7319007FB05A /* HTTPFileResponse.m in Sources */,
 				4D784B81183D7319007FB05A /* HTTPRedirectResponse.m in Sources */,
+				863ED8B5183EF60200AB7A6A /* NSString+Hex.m in Sources */,
 				4D784B84183D7319007FB05A /* GCDAsyncSocket.m in Sources */,
 				4D784B75183D7319007FB05A /* HTTPAuthenticationRequest.m in Sources */,
 			);

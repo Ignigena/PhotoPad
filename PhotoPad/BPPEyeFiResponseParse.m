@@ -45,7 +45,8 @@
         [elementName isEqualToString:@"filename"] ||
         [elementName isEqualToString:@"filesize"] ||
         [elementName isEqualToString:@"macaddress"] ||
-        [elementName isEqualToString:@"transfermode"]) {
+        [elementName isEqualToString:@"transfermode"] ||
+        [elementName isEqualToString:@"transfermodetimestamp"]) {
         // Start accumulating parsed character data.
         _accumulatingParsedCharacterData = YES;
         // Reset the accumuluated string.

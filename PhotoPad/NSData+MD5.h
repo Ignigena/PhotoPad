@@ -2,9 +2,9 @@
 //  Copyright iOSDeveloperTips.com All rights reserved.
 //
 
-#import "NSString+MD5.h"
+#import "NSData+MD5.h"
  
-@interface NSString(MD5)
+@interface NSData(MD5)
  
 - (NSString *)MD5;
  

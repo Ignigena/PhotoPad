@@ -20,11 +20,11 @@
 			<key>IsSecure</key>
 			<false/>
 			<key>Key</key>
-			<string>card_id</string>
+			<string>upload_key</string>
 			<key>KeyboardType</key>
 			<string>Alphabet</string>
 			<key>Title</key>
-			<string>Card ID</string>
+			<string>Upload Key</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 		</dict>

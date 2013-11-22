@@ -72,9 +72,6 @@
     NSUserDefaults * standardUserDefaults = [NSUserDefaults standardUserDefaults];
     NSString *upload_key = [standardUserDefaults objectForKey:@"upload_key"];
     
-    NSLog(@"%@\n%@\n%@", macaddress, cnonce, upload_key);
-    NSLog(@"%@\n%@\n%@", [macaddress hex], [cnonce hex], [upload_key hex]);
-    
     return [[self createDataWithHexString: [NSString stringWithFormat:@"%@%@%@", macaddress, cnonce, upload_key]] MD5];
 }
 

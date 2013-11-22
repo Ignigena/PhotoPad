@@ -11,7 +11,6 @@
 //
 
 #import "BPPEyeFiConnector.h"
-#import "BPPEyeFiResponse.h"
 #import "BPPEyeFiResponseParse.h"
 #import "HTTPDataResponse.h"
 #import "NSString+Hex.h"

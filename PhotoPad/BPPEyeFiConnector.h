@@ -9,7 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "HTTPConnection.h"
 
-@interface BPPEyeFiConnector : HTTPConnection
+@class MultipartFormDataParser;
+
+@interface BPPEyeFiConnector : HTTPConnection {
+    MultipartFormDataParser* parser;
+    NSFileHandle*					storeFile;
+}
 
 @property (strong, nonatomic) NSData *postData;
 @property (nonatomic) NSOperationQueue *parseQueue;

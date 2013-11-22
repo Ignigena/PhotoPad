@@ -58,6 +58,8 @@
 		863ED8B5183EF60200AB7A6A /* NSString+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8B4183EF60200AB7A6A /* NSString+Hex.m */; };
 		863ED8C0183F087A00AB7A6A /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8BD183F087A00AB7A6A /* NSData+MD5.m */; };
 		863ED8C1183F087A00AB7A6A /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8BF183F087A00AB7A6A /* NSString+MD5.m */; };
+		863ED8C3183F0BBA00AB7A6A /* GetPhotoStatus.xml in Resources */ = {isa = PBXBuildFile; fileRef = 863ED8C2183F0BBA00AB7A6A /* GetPhotoStatus.xml */; };
+		863ED8C5183F1FEA00AB7A6A /* UploadPhoto.xml in Resources */ = {isa = PBXBuildFile; fileRef = 863ED8C4183F1FEA00AB7A6A /* UploadPhoto.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +163,8 @@
 		863ED8BD183F087A00AB7A6A /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
 		863ED8BE183F087A00AB7A6A /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		863ED8BF183F087A00AB7A6A /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		863ED8C2183F0BBA00AB7A6A /* GetPhotoStatus.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = GetPhotoStatus.xml; path = Responses/GetPhotoStatus.xml; sourceTree = "<group>"; };
+		863ED8C4183F1FEA00AB7A6A /* UploadPhoto.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = UploadPhoto.xml; path = Responses/UploadPhoto.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,6 +421,8 @@
 			isa = PBXGroup;
 			children = (
 				863ED8A7183EC90000AB7A6A /* StartSession.xml */,
+				863ED8C2183F0BBA00AB7A6A /* GetPhotoStatus.xml */,
+				863ED8C4183F1FEA00AB7A6A /* UploadPhoto.xml */,
 			);
 			name = "EyeFi Responses";
 			sourceTree = "<group>";
@@ -500,8 +506,10 @@
 			files = (
 				4D784B15183D72D1007FB05A /* Images.xcassets in Resources */,
 				4D784B04183D72D1007FB05A /* InfoPlist.strings in Resources */,
+				863ED8C3183F0BBA00AB7A6A /* GetPhotoStatus.xml in Resources */,
 				4D784B83183D7319007FB05A /* About.txt in Resources */,
 				4D784B0D183D72D1007FB05A /* Main.storyboard in Resources */,
+				863ED8C5183F1FEA00AB7A6A /* UploadPhoto.xml in Resources */,
 				4D784B8D183D7319007FB05A /* README.txt in Resources */,
 				4D784B85183D7319007FB05A /* About.txt in Resources */,
 				863ED8A8183EC90000AB7A6A /* StartSession.xml in Resources */,

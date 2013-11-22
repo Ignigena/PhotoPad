@@ -6,15 +6,19 @@
 //  Copyright (c) 2013 Albert Martin. All rights reserved.
 //
 //  Credit for reverse engineered EyeFi server concept:
-//    https://npmjs.org/package/eyefi
+//    https://github.com/usefulthink/node-eyefi
 //    https://code.google.com/p/sceye-fi/wiki/UploadProtocol
 //
 
 #import "BPPEyeFiConnector.h"
 #import "BPPEyeFiResponseParse.h"
+#import "HTTPMessage.h"
 #import "HTTPDataResponse.h"
+#import "HTTPDynamicFileResponse.h"
 #import "NSString+Hex.h"
 #import "NSData+MD5.h"
+#import "MultipartFormDataParser.h"
+#import "MultipartMessageHeaderField.h"
 
 @implementation BPPEyeFiConnector
 
@@ -23,29 +27,149 @@
     return YES;
 }
 
+- (void)prepareForBodyWithSize:(UInt64)contentLength
+{
+    NSString* boundary = [request headerField:@"boundary"];
+    parser = [[MultipartFormDataParser alloc] initWithBoundary:boundary formEncoding:NSUTF8StringEncoding];
+    parser.delegate = self;
+}
+
 - (void)processBodyData:(NSData *)postDataChunk
 {
+    [parser appendData:postDataChunk];
+    
     _postData = postDataChunk;
-    NSLog(@"%@", [[NSString alloc] initWithData:postDataChunk encoding:NSUTF8StringEncoding]);
 }
 
 - (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path
 {
-    NSLog(@"%@", path);
-    if ([path isEqualToString: @"/api/soap/eyefilm/v1"] || [path isEqualToString: @"/api/soap/eyefilm/upload"]) {
-        self.parseQueue = [NSOperationQueue new];
-        BPPEyeFiResponseParse *parseOperation = [[BPPEyeFiResponseParse alloc] initWithData:self.postData];
-        [self.parseQueue addOperation:parseOperation];
-        [self.parseQueue waitUntilAllOperationsAreFinished];
-        
-        if ([parseOperation.eyeFiMethod isEqualToString:@"StartSession"]) {
-            return [self startSessionAuthenticate: parseOperation.eyeFiPayload];
+    self.parseQueue = [NSOperationQueue new];
+    BPPEyeFiResponseParse *parseOperation = [[BPPEyeFiResponseParse alloc] initWithData:self.postData];
+    [self.parseQueue addOperation:parseOperation];
+    [self.parseQueue waitUntilAllOperationsAreFinished];
+    
+    NSLog(@"Method is: %@", parseOperation.eyeFiMethod);
+    
+    if ([parseOperation.eyeFiMethod isEqualToString:@"StartSession"]) {
+        return [self startSessionAuthenticate: parseOperation.eyeFiPayload];
+    }
+    
+    if ([parseOperation.eyeFiMethod isEqualToString:@"GetPhotoStatus"]) {
+        return [[HTTPDataResponse alloc] initWithData:[[self stringForTemplate:@"GetPhotoStatus"] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    
+    if ([parseOperation.eyeFiMethod isEqualToString:@"UploadPhoto"]) {
+        NSLog(@"RETURNED:");
+        NSLog(@"%@", [self stringForTemplate:@"UploadPhoto"]);
+        return [[HTTPDataResponse alloc] initWithData:[[self stringForTemplate:@"UploadPhoto"] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    
+    return [super httpResponseForMethod:method URI:path];
+}
+
+- (BOOL)expectsRequestBodyFromMethod:(NSString *)method atPath:(NSString *)path
+{
+	// Inform HTTP server that we expect a body to accompany a POST request
+	if([method isEqualToString:@"POST"] && [path isEqualToString:@"/api/soap/eyefilm/v1/upload"]) {
+        // here we need to make sure, boundary is set in header
+        NSString* contentType = [request headerField:@"Content-Type"];
+        NSUInteger paramsSeparator = [contentType rangeOfString:@";"].location;
+        if( NSNotFound == paramsSeparator ) {
+            return NO;
+        }
+        if( paramsSeparator >= contentType.length - 1 ) {
+            return NO;
+        }
+        NSString* type = [contentType substringToIndex:paramsSeparator];
+        if( ![type isEqualToString:@"multipart/form-data"] ) {
+            // we expect multipart/form-data content type
+            return NO;
         }
         
-        return [[HTTPDataResponse alloc] initWithData:[[NSString stringWithFormat:@"communication method: %@ payload: %@", parseOperation.eyeFiMethod, parseOperation.eyeFiPayload] dataUsingEncoding:NSUTF8StringEncoding]];
+		// enumerate all params in content-type, and find boundary there
+        NSArray* params = [[contentType substringFromIndex:paramsSeparator + 1] componentsSeparatedByString:@";"];
+        for( NSString* param in params ) {
+            paramsSeparator = [param rangeOfString:@"="].location;
+            if( (NSNotFound == paramsSeparator) || paramsSeparator >= param.length - 1 ) {
+                continue;
+            }
+            NSString* paramName = [param substringWithRange:NSMakeRange(1, paramsSeparator-1)];
+            NSString* paramValue = [param substringFromIndex:paramsSeparator+1];
+            
+            if( [paramName isEqualToString: @"boundary"] ) {
+                // let's separate the boundary from content-type, to make it more handy to handle
+                [request setHeaderField:@"boundary" value:paramValue];
+            }
+        }
+        // check if boundary specified
+        if( nil == [request headerField:@"boundary"] )  {
+            return NO;
+        }
+        return YES;
     }
-    return FALSE;
+	return [super expectsRequestBodyFromMethod:method atPath:path];
 }
+
+#pragma Multipart data processing.
+
+- (void)processStartOfPartWithHeader:(MultipartMessageHeader*)header {
+	// in this sample, we are not interested in parts, other then file parts.
+	// check content disposition to find out filename
+    
+    MultipartMessageHeaderField* disposition = [header.fields objectForKey:@"Content-Disposition"];
+	NSString* filename = [[disposition.params objectForKey:@"filename"] lastPathComponent];
+    
+    NSLog(@"header: %@", header);
+    NSLog(@"filename: %@", filename);
+    
+    if ( (nil == filename) || [filename isEqualToString: @""] ) {
+        // it's either not a file part, or
+		// an empty form sent. we won't handle it.
+		return;
+	}
+	NSString* uploadDirPath = [@"~/Documents" stringByExpandingTildeInPath];
+	
+    NSString* filePath = [uploadDirPath stringByAppendingPathComponent: [filename substringToIndex:[filename length] - 4]];
+    if( [[NSFileManager defaultManager] fileExistsAtPath:filePath] ) {
+        storeFile = nil;
+    }
+    else {
+		NSLog(@"Saving file to %@", filePath);
+		if(![[NSFileManager defaultManager] createDirectoryAtPath:uploadDirPath withIntermediateDirectories:true attributes:nil error:nil]) {
+			NSLog(@"Could not create directory at path: %@", filePath);
+		}
+		if(![[NSFileManager defaultManager] createFileAtPath:filePath contents:nil attributes:nil]) {
+			NSLog(@"Could not create file at path: %@", filePath);
+		}
+		storeFile = [NSFileHandle fileHandleForWritingAtPath:filePath];
+    }
+}
+
+
+- (void)processContent:(NSData*)data WithHeader:(MultipartMessageHeader*)header
+{
+	if (storeFile) {
+		[storeFile writeData:data];
+	} else {
+        // If we're not storing a file this is likely the UploadPhoto envelope.
+        NSString *body = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        if (body) {
+            // If this is a valid string we're considering it the envelope.
+            _postData = data;
+        }
+    }
+    
+    NSLog(@"processContentHeader: %@", header);
+    NSLog(@"processContent: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+}
+
+- (void)processEndOfPartWithHeader:(MultipartMessageHeader*)header
+{
+	[storeFile closeFile];
+	storeFile = nil;
+}
+
+#pragma Helper methods.
 
 - (HTTPDataResponse *)startSessionAuthenticate:(NSDictionary *)payload
 {

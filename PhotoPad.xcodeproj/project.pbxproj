@@ -53,7 +53,7 @@
 		4D784B90183D7348007FB05A /* BPPEyeFiConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D784B8F183D7348007FB05A /* BPPEyeFiConnector.m */; };
 		863ED8A1183D973200AB7A6A /* BPPEyeFiResponseParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8A0183D973200AB7A6A /* BPPEyeFiResponseParse.m */; };
 		863ED8A3183DAC7800AB7A6A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 863ED8A2183DAC7800AB7A6A /* Settings.bundle */; };
-		863ED8A6183DB66000AB7A6A /* UIColor_Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8A5183DB66000AB7A6A /* UIColor_Hex.m */; };
+		863ED8A6183DB66000AB7A6A /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8A5183DB66000AB7A6A /* UIColor+Hex.m */; };
 		863ED8A8183EC90000AB7A6A /* StartSession.xml in Resources */ = {isa = PBXBuildFile; fileRef = 863ED8A7183EC90000AB7A6A /* StartSession.xml */; };
 		863ED8B5183EF60200AB7A6A /* NSString+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8B4183EF60200AB7A6A /* NSString+Hex.m */; };
 		863ED8C0183F087A00AB7A6A /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8BD183F087A00AB7A6A /* NSData+MD5.m */; };
@@ -154,8 +154,8 @@
 		863ED89F183D973200AB7A6A /* BPPEyeFiResponseParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPEyeFiResponseParse.h; sourceTree = "<group>"; };
 		863ED8A0183D973200AB7A6A /* BPPEyeFiResponseParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPEyeFiResponseParse.m; sourceTree = "<group>"; };
 		863ED8A2183DAC7800AB7A6A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		863ED8A4183DB66000AB7A6A /* UIColor_Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColor_Hex.h; sourceTree = "<group>"; };
-		863ED8A5183DB66000AB7A6A /* UIColor_Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColor_Hex.m; sourceTree = "<group>"; };
+		863ED8A4183DB66000AB7A6A /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		863ED8A5183DB66000AB7A6A /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		863ED8A7183EC90000AB7A6A /* StartSession.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = StartSession.xml; path = Responses/StartSession.xml; sourceTree = "<group>"; };
 		863ED8B3183EF60200AB7A6A /* NSString+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hex.h"; sourceTree = "<group>"; };
 		863ED8B4183EF60200AB7A6A /* NSString+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hex.m"; sourceTree = "<group>"; };
@@ -237,14 +237,6 @@
 				4D784B11183D72D1007FB05A /* BPPFlipsideViewController.h */,
 				4D784B12183D72D1007FB05A /* BPPFlipsideViewController.m */,
 				4D784B14183D72D1007FB05A /* Images.xcassets */,
-				863ED8A4183DB66000AB7A6A /* UIColor_Hex.h */,
-				863ED8A5183DB66000AB7A6A /* UIColor_Hex.m */,
-				863ED8BC183F087A00AB7A6A /* NSData+MD5.h */,
-				863ED8BD183F087A00AB7A6A /* NSData+MD5.m */,
-				863ED8BE183F087A00AB7A6A /* NSString+MD5.h */,
-				863ED8BF183F087A00AB7A6A /* NSString+MD5.m */,
-				863ED8B3183EF60200AB7A6A /* NSString+Hex.h */,
-				863ED8B4183EF60200AB7A6A /* NSString+Hex.m */,
 				863ED8A9183EC95B00AB7A6A /* EyeFi Responses */,
 				4D784B00183D72D1007FB05A /* Supporting Files */,
 			);
@@ -284,6 +276,7 @@
 		4D784B31183D7303007FB05A /* External */ = {
 			isa = PBXGroup;
 			children = (
+				863ED8C6183F267300AB7A6A /* Extensions */,
 				4D784B32183D730B007FB05A /* CocoaHTTPServer */,
 			);
 			name = External;
@@ -427,6 +420,22 @@
 			name = "EyeFi Responses";
 			sourceTree = "<group>";
 		};
+		863ED8C6183F267300AB7A6A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				863ED8A4183DB66000AB7A6A /* UIColor+Hex.h */,
+				863ED8A5183DB66000AB7A6A /* UIColor+Hex.m */,
+				863ED8BC183F087A00AB7A6A /* NSData+MD5.h */,
+				863ED8BD183F087A00AB7A6A /* NSData+MD5.m */,
+				863ED8BE183F087A00AB7A6A /* NSString+MD5.h */,
+				863ED8BF183F087A00AB7A6A /* NSString+MD5.m */,
+				863ED8B3183EF60200AB7A6A /* NSString+Hex.h */,
+				863ED8B4183EF60200AB7A6A /* NSString+Hex.m */,
+			);
+			name = Extensions;
+			path = PhotoPad;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -541,7 +550,7 @@
 				4D784B7E183D7319007FB05A /* HTTPDynamicFileResponse.m in Sources */,
 				4D784B86183D7319007FB05A /* DDAbstractDatabaseLogger.m in Sources */,
 				4D784B87183D7319007FB05A /* DDASLLogger.m in Sources */,
-				863ED8A6183DB66000AB7A6A /* UIColor_Hex.m in Sources */,
+				863ED8A6183DB66000AB7A6A /* UIColor+Hex.m in Sources */,
 				4D784B7C183D7319007FB05A /* HTTPAsyncFileResponse.m in Sources */,
 				4D784B7D183D7319007FB05A /* HTTPDataResponse.m in Sources */,
 				4D784B78183D7319007FB05A /* HTTPServer.m in Sources */,

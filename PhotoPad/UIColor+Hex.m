@@ -5,7 +5,7 @@
 //  Copyright 2010 Matthias Bauch. All rights reserved.
 //
 
-#import "UIColor_Hex.h"
+#import "UIColor+Hex.h"
 
 @implementation UIColor(MBCategory)
 

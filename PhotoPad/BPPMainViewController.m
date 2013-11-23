@@ -39,6 +39,12 @@
     _photosBrowser = [[MWPhotoBrowser alloc] initWithDelegate:self];
     [_photosBrowser showPreviousPhotoAnimated:YES];
     [_photosBrowser showNextPhotoAnimated:YES];
+    
+    // Setup a long press to reveal an action menu.
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(activateActionMode:)];
+    longPress.delegate = self;
+    [_galleryView addGestureRecognizer:longPress];
+    self.photoToolSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:nil];
 }
 
 - (UIImage *)imageWithImage:(UIImage *)image scaledToFillSize:(CGSize)size
@@ -115,6 +121,26 @@
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(10, 10, 0, 10);
+}
+
+- (void)activateActionMode:(UILongPressGestureRecognizer *)gr
+{
+    if (gr.state == UIGestureRecognizerStateBegan) {
+        NSIndexPath *indexPath = [_galleryView indexPathForItemAtPoint:[gr locationInView:_galleryView]];
+        UICollectionViewLayoutAttributes *cellAtributes = [_galleryView layoutAttributesForItemAtIndexPath:indexPath];
+        self.selectedIndex = indexPath.row;
+        [self.photoToolSheet showFromRect:cellAtributes.frame inView:_galleryView animated:YES];
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        // Delete button was pressed.
+        [[NSFileManager defaultManager] removeItemAtPath:[_photos objectAtIndex:_selectedIndex] error:nil];
+        [_photos removeObjectAtIndex:_selectedIndex];
+        [_galleryView reloadData];
+    }
 }
 
 #pragma mark - Photo Browser

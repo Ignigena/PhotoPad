@@ -73,8 +73,8 @@
 
 - (void)updateGallery:(NSNotification *)notification
 {
-    [_photos addObject: [notification.userInfo objectForKey:@"path"]];
-    [_galleryView reloadData];
+    [self.photos addObject: [notification.userInfo objectForKey:@"path"]];
+    [self.galleryView reloadData];
 }
 
 #pragma mark - Photo Gallery

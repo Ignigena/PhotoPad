@@ -23,6 +23,14 @@
 
 @implementation BPPEyeFiConnector
 
+- (id)initWithData:(NSData *)parseData {
+    self = [super init];
+    if (self) {
+        self.parser = [MultipartFormDataParser alloc];
+    }
+    return self;
+}
+
 - (BOOL)supportsMethod:(NSString *)method atPath:(NSString *)path
 {
     return YES;
@@ -31,13 +39,13 @@
 - (void)prepareForBodyWithSize:(UInt64)contentLength
 {
     NSString* boundary = [request headerField:@"boundary"];
-    parser = [[MultipartFormDataParser alloc] initWithBoundary:boundary formEncoding:NSUTF8StringEncoding];
-    parser.delegate = self;
+    self.parser = [[MultipartFormDataParser alloc] initWithBoundary:boundary formEncoding:NSUTF8StringEncoding];
+    self.parser.delegate = self;
 }
 
 - (void)processBodyData:(NSData *)postDataChunk
 {
-    [parser appendData:postDataChunk];
+    [self.parser appendData:postDataChunk];
     
     _postData = postDataChunk;
 }
@@ -117,7 +125,6 @@
 #pragma Multipart data processing.
 
 - (void)processStartOfPartWithHeader:(MultipartMessageHeader*)header {
-    test = 1;
 	MultipartMessageHeaderField* disposition = [header.fields objectForKey:@"Content-Disposition"];
 	NSString* filename = [[disposition.params objectForKey:@"filename"] lastPathComponent];
     
@@ -128,31 +135,30 @@
 	
     _imagePath = [uploadDirPath stringByAppendingPathComponent: filename];
     if( [[NSFileManager defaultManager] fileExistsAtPath:_imagePath] ) {
-        storeFile = nil;
+        self.storeFile = nil;
     }
     else {
 		if(![[NSFileManager defaultManager] createFileAtPath:_imagePath contents:nil attributes:nil]) {
 			NSLog(@"Could not create file at path: %@", _imagePath);
 		}
-		storeFile = [NSFileHandle fileHandleForWritingAtPath:_imagePath];
+		self.storeFile = [NSFileHandle fileHandleForWritingAtPath:_imagePath];
     }
 }
 
 
 - (void)processContent:(NSData*)data WithHeader:(MultipartMessageHeader*)header
 {
-	if (storeFile) {
-		[storeFile writeData:data];
-        test++;
+	if (self.storeFile) {
+		[self.storeFile writeData:data];
 	}
 }
 
 - (void)processEndOfPartWithHeader:(MultipartMessageHeader*)header
 {
-    if (storeFile) {
-        [storeFile closeFile];
+    if (self.storeFile) {
+        [self.storeFile closeFile];
     
-        storeFile = nil;
+        self.storeFile = nil;
         
         [[NSFileManager defaultManager] unarchiveEyeFi:_imagePath];
     }

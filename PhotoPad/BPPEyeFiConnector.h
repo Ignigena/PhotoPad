@@ -11,14 +11,12 @@
 
 @class MultipartFormDataParser;
 
-@interface BPPEyeFiConnector : HTTPConnection {
-    MultipartFormDataParser* parser;
-    NSFileHandle*					storeFile;
-    int test;
-}
+@interface BPPEyeFiConnector : HTTPConnection
 
+@property (strong, nonatomic) MultipartFormDataParser *parser;
 @property (strong, nonatomic) NSString *imagePath;
 @property (strong, nonatomic) NSData *postData;
+@property (strong, nonatomic) NSFileHandle *storeFile;
 @property (nonatomic) NSOperationQueue *parseQueue;
 
 @end

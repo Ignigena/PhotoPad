@@ -6,10 +6,9 @@
 //  Copyright (c) 2013 Albert Martin. All rights reserved.
 //
 
-#import "BPPFlipsideViewController.h"
 #import "MWPhotoBrowser.h"
 
-@interface BPPMainViewController : UIViewController <BPPFlipsideViewControllerDelegate, UIPopoverControllerDelegate, MWPhotoBrowserDelegate>
+@interface BPPMainViewController : UIViewController <MWPhotoBrowserDelegate>
 
 @property (strong, nonatomic) NSMutableArray *photos;
 @property (strong, nonatomic) MWPhotoBrowser *photosBrowser;

@@ -15,7 +15,6 @@
 		4D784B0A183D72D1007FB05A /* BPPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D784B09183D72D1007FB05A /* BPPAppDelegate.m */; };
 		4D784B0D183D72D1007FB05A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D784B0B183D72D1007FB05A /* Main.storyboard */; };
 		4D784B10183D72D1007FB05A /* BPPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D784B0F183D72D1007FB05A /* BPPMainViewController.m */; };
-		4D784B13183D72D1007FB05A /* BPPFlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D784B12183D72D1007FB05A /* BPPFlipsideViewController.m */; };
 		4D784B15183D72D1007FB05A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D784B14183D72D1007FB05A /* Images.xcassets */; };
 		4D784B1C183D72D1007FB05A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D784B1B183D72D1007FB05A /* XCTest.framework */; };
 		4D784B1D183D72D1007FB05A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D784AF9183D72D1007FB05A /* Foundation.framework */; };
@@ -118,8 +117,6 @@
 		4D784B0C183D72D1007FB05A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D784B0E183D72D1007FB05A /* BPPMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPPMainViewController.h; sourceTree = "<group>"; };
 		4D784B0F183D72D1007FB05A /* BPPMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPPMainViewController.m; sourceTree = "<group>"; };
-		4D784B11183D72D1007FB05A /* BPPFlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPPFlipsideViewController.h; sourceTree = "<group>"; };
-		4D784B12183D72D1007FB05A /* BPPFlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPPFlipsideViewController.m; sourceTree = "<group>"; };
 		4D784B14183D72D1007FB05A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4D784B1A183D72D1007FB05A /* PhotoPadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoPadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D784B1B183D72D1007FB05A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -335,9 +332,6 @@
 				4D784B0F183D72D1007FB05A /* BPPMainViewController.m */,
 				863ED9401840608900AB7A6A /* BPPGalleryCell.h */,
 				863ED9411840608900AB7A6A /* BPPGalleryCell.m */,
-				4D784B11183D72D1007FB05A /* BPPFlipsideViewController.h */,
-				4D784B12183D72D1007FB05A /* BPPFlipsideViewController.m */,
-				4D784B14183D72D1007FB05A /* Images.xcassets */,
 				863ED8A9183EC95B00AB7A6A /* EyeFi Responses */,
 				4D784B00183D72D1007FB05A /* Supporting Files */,
 			);
@@ -347,6 +341,7 @@
 		4D784B00183D72D1007FB05A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4D784B14183D72D1007FB05A /* Images.xcassets */,
 				863ED8A2183DAC7800AB7A6A /* Settings.bundle */,
 				4D784B01183D72D1007FB05A /* PhotoPad-Info.plist */,
 				4D784B02183D72D1007FB05A /* InfoPlist.strings */,
@@ -797,7 +792,6 @@
 				4D784B79183D7319007FB05A /* MultipartFormDataParser.m in Sources */,
 				863ED93118403D1700AB7A6A /* UIImage+WebP.m in Sources */,
 				4D784B90183D7348007FB05A /* BPPEyeFiConnector.m in Sources */,
-				4D784B13183D72D1007FB05A /* BPPFlipsideViewController.m in Sources */,
 				863ED93018403D1700AB7A6A /* UIImage+MultiFormat.m in Sources */,
 				863ED92F18403D1700AB7A6A /* UIImage+GIF.m in Sources */,
 				863ED91F18403D1700AB7A6A /* MWTapDetectingView.m in Sources */,

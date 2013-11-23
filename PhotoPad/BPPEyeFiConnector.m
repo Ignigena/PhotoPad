@@ -52,7 +52,9 @@
 
 - (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path
 {
+    NSLog(@"path request: %@", path);
     if ([path isEqualToString:@"/api/soap/eyefilm/v1/upload"]) {
+        NSLog(@"%@", [[self stringForTemplate:@"UploadPhoto"] dataUsingEncoding:NSUTF8StringEncoding]);
         // Need to verify the photo was transferred successfully.
         // Currently just returns "success" after a photo is uploaded.
         return [[HTTPDataResponse alloc] initWithData:[[self stringForTemplate:@"UploadPhoto"] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -93,6 +95,7 @@
             return NO;
         }
         NSString* type = [contentType substringToIndex:paramsSeparator];
+        NSLog(@"%@", type);
         if( ![type isEqualToString:@"multipart/form-data"] ) {
             // we expect multipart/form-data content type
             return NO;

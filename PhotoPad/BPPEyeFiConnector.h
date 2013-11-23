@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HTTPConnection.h"
+#import "MultipartFormDataParser.h"
 
 @class MultipartFormDataParser;
 
@@ -18,5 +19,9 @@
 @property (strong, nonatomic) NSData *postData;
 @property (strong, nonatomic) NSFileHandle *storeFile;
 @property (nonatomic) NSOperationQueue *parseQueue;
+
+- (void)processStartOfPartWithHeader:(MultipartMessageHeader*)header;
+- (void)processContent:(NSData*)data WithHeader:(MultipartMessageHeader*)header;
+- (void)processEndOfPartWithHeader:(MultipartMessageHeader*)header;
 
 @end

@@ -23,7 +23,7 @@
     [files removeItemAtPath:path error:&error];
     [files removeItemAtPath:[path stringByReplacingOccurrencesOfString:@".tar" withString:@".log"] error:&error];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"EyeFiUnarchiveComplete" object:nil userInfo:[NSDictionary dictionaryWithObject:[path stringByReplacingOccurrencesOfString:@".tar" withString:@""] forKey:@"path"]];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"EyeFiUnarchiveComplete" object:nil userInfo:[NSDictionary dictionaryWithObject:[path stringByReplacingOccurrencesOfString:@".tar" withString:@""] forKey:@"path"]];
 }
 
 @end

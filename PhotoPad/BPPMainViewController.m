@@ -9,6 +9,7 @@
 #import "BPPMainViewController.h"
 #import "BPPGalleryCell.h"
 #import "NSFileManager+Tar.h"
+#import "UIColor+Hex.h"
 
 @interface BPPMainViewController ()
 
@@ -19,10 +20,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self updateUIFromSettings];
 	
     [[NSNotificationCenter defaultCenter]addObserver:self
-                                            selector:@selector(updateTitle)
-                                                name:UIApplicationDidBecomeActiveNotification
+                                            selector:@selector(updateUIFromSettings)
+                                                name:NSUserDefaultsDidChangeNotification
                                               object:nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self
@@ -70,11 +72,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)updateTitle
+- (void)updateUIFromSettings
 {
     NSUserDefaults * standardUserDefaults = [NSUserDefaults standardUserDefaults];
     NSString *windowTitle = [standardUserDefaults objectForKey:@"window_title"];
-    self.navigationController.navigationBar.topItem.title = (windowTitle) ? windowTitle : @"Browse All Photos";
+    NSString *navbarColor = [standardUserDefaults objectForKey:@"window_color"];
+    UIColor *navbarTint = [UIColor colorWithHexString: (navbarColor) ?: @"#000000"];
+    
+    [[UINavigationBar appearance] setBarTintColor: navbarTint];
+    [[UIToolbar appearance] setTintColor: navbarTint];
+    self.navigationController.navigationBar.barTintColor = navbarTint;
+    
+    self.navigationController.navigationBar.topItem.title = (windowTitle) ?: @"Browse All Photos";
 }
 
 - (void)updateGallery:(NSNotification *)notification

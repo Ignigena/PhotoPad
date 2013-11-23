@@ -70,16 +70,6 @@
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>Inverted</string>
-			<key>Key</key>
-			<string>title_inverted</string>
-			<key>DefaultValue</key>
-			<true/>
-		</dict>
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>

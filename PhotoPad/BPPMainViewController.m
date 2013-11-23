@@ -71,7 +71,7 @@
     self.navigationController.navigationBar.topItem.title = (windowTitle) ? windowTitle : @"Browse All Photos";
 }
 
-- (void)updateGallery:(NSNotification *) notification
+- (void)updateGallery:(NSNotification *)notification
 {
     [_photos addObject: [notification.userInfo objectForKey:@"path"]];
     [_galleryView reloadData];
@@ -106,6 +106,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    [_photosBrowser reloadData];
     [_photosBrowser setCurrentPhotoIndex:indexPath.row];
     [self.navigationController pushViewController:_photosBrowser animated:YES];
 }

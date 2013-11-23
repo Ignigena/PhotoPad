@@ -43,6 +43,12 @@
 
 - (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path
 {
+    if ([path isEqualToString:@"/api/soap/eyefilm/v1/upload"]) {
+        // Need to verify the photo was transferred successfully.
+        // Currently just returns "success" after a photo is uploaded.
+        return [[HTTPDataResponse alloc] initWithData:[[self stringForTemplate:@"UploadPhoto"] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    
     self.parseQueue = [NSOperationQueue new];
     BPPEyeFiResponseParse *parseOperation = [[BPPEyeFiResponseParse alloc] initWithData:self.postData];
     [self.parseQueue addOperation:parseOperation];
@@ -58,11 +64,8 @@
         return [[HTTPDataResponse alloc] initWithData:[[self stringForTemplate:@"GetPhotoStatus"] dataUsingEncoding:NSUTF8StringEncoding]];
     }
     
-    if ([parseOperation.eyeFiMethod isEqualToString:@"UploadPhoto"]) {
-        NSLog(@"RETURNED:");
-        NSLog(@"%@", [self stringForTemplate:@"UploadPhoto"]);
-        return [[HTTPDataResponse alloc] initWithData:[[self stringForTemplate:@"UploadPhoto"] dataUsingEncoding:NSUTF8StringEncoding]];
-    }
+    // The "MarkLastPhotoInRoll" is not required for functionality.
+    // Will add it later, skipping now due to time constraints.
     
     return [super httpResponseForMethod:method URI:path];
 }
@@ -113,18 +116,10 @@
 #pragma Multipart data processing.
 
 - (void)processStartOfPartWithHeader:(MultipartMessageHeader*)header {
-	// in this sample, we are not interested in parts, other then file parts.
-	// check content disposition to find out filename
-    
-    MultipartMessageHeaderField* disposition = [header.fields objectForKey:@"Content-Disposition"];
+	MultipartMessageHeaderField* disposition = [header.fields objectForKey:@"Content-Disposition"];
 	NSString* filename = [[disposition.params objectForKey:@"filename"] lastPathComponent];
     
-    NSLog(@"header: %@", header);
-    NSLog(@"filename: %@", filename);
-    
     if ( (nil == filename) || [filename isEqualToString: @""] ) {
-        // it's either not a file part, or
-		// an empty form sent. we won't handle it.
 		return;
 	}
 	NSString* uploadDirPath = [@"~/Documents" stringByExpandingTildeInPath];
@@ -134,7 +129,6 @@
         storeFile = nil;
     }
     else {
-		NSLog(@"Saving file to %@", filePath);
 		if(![[NSFileManager defaultManager] createDirectoryAtPath:uploadDirPath withIntermediateDirectories:true attributes:nil error:nil]) {
 			NSLog(@"Could not create directory at path: %@", filePath);
 		}
@@ -150,17 +144,7 @@
 {
 	if (storeFile) {
 		[storeFile writeData:data];
-	} else {
-        // If we're not storing a file this is likely the UploadPhoto envelope.
-        NSString *body = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        if (body) {
-            // If this is a valid string we're considering it the envelope.
-            _postData = data;
-        }
-    }
-    
-    NSLog(@"processContentHeader: %@", header);
-    NSLog(@"processContent: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+	}
 }
 
 - (void)processEndOfPartWithHeader:(MultipartMessageHeader*)header

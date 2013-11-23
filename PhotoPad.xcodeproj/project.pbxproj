@@ -90,6 +90,7 @@
 		863ED93218403D1700AB7A6A /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED91518403D1700AB7A6A /* UIImageView+WebCache.m */; };
 		863ED93318403D1700AB7A6A /* MWPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 863ED91718403D1700AB7A6A /* MWPhotoBrowser.bundle */; };
 		863ED9391840502100AB7A6A /* NSFileManager+Tar.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED9381840502100AB7A6A /* NSFileManager+Tar.m */; };
+		863ED93C1840532500AB7A6A /* NSFileManager+EyeFi.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED93B1840532500AB7A6A /* NSFileManager+EyeFi.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,6 +251,8 @@
 		863ED91718403D1700AB7A6A /* MWPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MWPhotoBrowser.bundle; sourceTree = "<group>"; };
 		863ED9371840502100AB7A6A /* NSFileManager+Tar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Tar.h"; sourceTree = "<group>"; };
 		863ED9381840502100AB7A6A /* NSFileManager+Tar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Tar.m"; sourceTree = "<group>"; };
+		863ED93A1840532500AB7A6A /* NSFileManager+EyeFi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+EyeFi.h"; sourceTree = "<group>"; };
+		863ED93B1840532500AB7A6A /* NSFileManager+EyeFi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+EyeFi.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -527,6 +530,8 @@
 				863ED8B4183EF60200AB7A6A /* NSString+Hex.m */,
 				863ED9371840502100AB7A6A /* NSFileManager+Tar.h */,
 				863ED9381840502100AB7A6A /* NSFileManager+Tar.m */,
+				863ED93A1840532500AB7A6A /* NSFileManager+EyeFi.h */,
+				863ED93B1840532500AB7A6A /* NSFileManager+EyeFi.m */,
 			);
 			name = Extensions;
 			path = PhotoPad;
@@ -758,6 +763,7 @@
 				863ED9391840502100AB7A6A /* NSFileManager+Tar.m in Sources */,
 				863ED92E18403D1700AB7A6A /* UIButton+WebCache.m in Sources */,
 				863ED8A6183DB66000AB7A6A /* UIColor+Hex.m in Sources */,
+				863ED93C1840532500AB7A6A /* NSFileManager+EyeFi.m in Sources */,
 				4D784B7C183D7319007FB05A /* HTTPAsyncFileResponse.m in Sources */,
 				863ED92918403D1700AB7A6A /* SDWebImageDecoder.m in Sources */,
 				4D784B7D183D7319007FB05A /* HTTPDataResponse.m in Sources */,

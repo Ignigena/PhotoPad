@@ -19,7 +19,7 @@
 #import "NSData+MD5.h"
 #import "MultipartFormDataParser.h"
 #import "MultipartMessageHeaderField.h"
-#import "NSFileManager+Tar.h"
+#import "NSFileManager+EyeFi.h"
 
 @implementation BPPEyeFiConnector
 
@@ -153,10 +153,8 @@
         [storeFile closeFile];
     
         storeFile = nil;
-    
-        NSData* tarData = [NSData dataWithContentsOfFile:_imagePath];
-        NSError *error;
-        [[NSFileManager defaultManager] createFilesAndDirectoriesAtPath:[@"~/Documents/" stringByExpandingTildeInPath] withTarData:tarData error:&error];
+        
+        [[NSFileManager defaultManager] unarchiveEyeFi:_imagePath];
     }
 }
 

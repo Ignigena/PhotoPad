@@ -14,6 +14,8 @@
 		<string>https://github.com/robbiehanson/CocoaHTTPServer.git</string>
 		<key>C50B245E-05C7-4BB5-944D-490770BAAF47</key>
 		<string>https://github.com/Ignigena/PhotoPad.git</string>
+		<key>C75C77DB-5DA0-4778-B0DE-78FAFBB4E844</key>
+		<string>https://github.com/mwaterfall/MWPhotoBrowser.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>PhotoPad.xcodeproj/project.xcworkspace</string>
@@ -23,6 +25,8 @@
 		<string>../../../CocoaHTTPServer</string>
 		<key>C50B245E-05C7-4BB5-944D-490770BAAF47</key>
 		<string>../..</string>
+		<key>C75C77DB-5DA0-4778-B0DE-78FAFBB4E844</key>
+		<string>../../../MWPhotoBrowser</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Ignigena/PhotoPad.git</string>
@@ -39,6 +43,14 @@
 			<string>7F8D478A-293F-4AF4-AE48-CC9CBDE7309D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>CocoaHTTPServer</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C75C77DB-5DA0-4778-B0DE-78FAFBB4E844</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MWPhotoBrowser</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

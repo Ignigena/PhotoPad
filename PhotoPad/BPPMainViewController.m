@@ -7,6 +7,7 @@
 //
 
 #import "BPPMainViewController.h"
+#import "NSFileManager+Tar.h"
 
 @interface BPPMainViewController ()
 
@@ -22,6 +23,37 @@
                                             selector:@selector(updateTitle)
                                                 name:UIApplicationDidBecomeActiveNotification
                                               object:nil];
+    
+    // Create array of `MWPhoto` objects
+    _photos = [[NSMutableArray array] init];
+    [_photos addObject:[MWPhoto photoWithURL:[NSURL fileURLWithPath:[@"~/Documents/DSC_0016.JPG" stringByExpandingTildeInPath]]]];
+    [_photos addObject:[MWPhoto photoWithURL:[NSURL fileURLWithPath:[@"~/Documents/DSC_0017.JPG" stringByExpandingTildeInPath]]]];
+    [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3629/3339128908_7aecabc34b.jpg"]]];
+    [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b.jpg"]]];
+    
+    // Create & present browser
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    // Set options
+    browser.displayActionButton = YES; // Show action button to allow sharing, copying, etc (defaults to YES)
+    browser.displayNavArrows = NO; // Whether to display left and right nav arrows on toolbar (defaults to NO)
+    browser.zoomPhotosToFill = YES; // Images that almost fill the screen will be initially zoomed to fill (defaults to YES)
+    [browser setCurrentPhotoIndex:1]; // Example: allows second image to be presented first
+    // Present
+    [self.navigationController pushViewController:browser animated:YES];
+    
+    // Manipulate!
+    [browser showPreviousPhotoAnimated:YES];
+    [browser showNextPhotoAnimated:YES];
+}
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return self.photos.count;
+}
+
+- (MWPhoto *)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < self.photos.count)
+        return [self.photos objectAtIndex:index];
+    return nil;
 }
 
 - (void)didReceiveMemoryWarning

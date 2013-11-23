@@ -19,6 +19,7 @@
 #import "NSData+MD5.h"
 #import "MultipartFormDataParser.h"
 #import "MultipartMessageHeaderField.h"
+#import "NSFileManager+Tar.h"
 
 @implementation BPPEyeFiConnector
 
@@ -116,6 +117,7 @@
 #pragma Multipart data processing.
 
 - (void)processStartOfPartWithHeader:(MultipartMessageHeader*)header {
+    test = 1;
 	MultipartMessageHeaderField* disposition = [header.fields objectForKey:@"Content-Disposition"];
 	NSString* filename = [[disposition.params objectForKey:@"filename"] lastPathComponent];
     
@@ -124,18 +126,15 @@
 	}
 	NSString* uploadDirPath = [@"~/Documents" stringByExpandingTildeInPath];
 	
-    NSString* filePath = [uploadDirPath stringByAppendingPathComponent: [filename substringToIndex:[filename length] - 4]];
-    if( [[NSFileManager defaultManager] fileExistsAtPath:filePath] ) {
+    _imagePath = [uploadDirPath stringByAppendingPathComponent: filename];
+    if( [[NSFileManager defaultManager] fileExistsAtPath:_imagePath] ) {
         storeFile = nil;
     }
     else {
-		if(![[NSFileManager defaultManager] createDirectoryAtPath:uploadDirPath withIntermediateDirectories:true attributes:nil error:nil]) {
-			NSLog(@"Could not create directory at path: %@", filePath);
+		if(![[NSFileManager defaultManager] createFileAtPath:_imagePath contents:nil attributes:nil]) {
+			NSLog(@"Could not create file at path: %@", _imagePath);
 		}
-		if(![[NSFileManager defaultManager] createFileAtPath:filePath contents:nil attributes:nil]) {
-			NSLog(@"Could not create file at path: %@", filePath);
-		}
-		storeFile = [NSFileHandle fileHandleForWritingAtPath:filePath];
+		storeFile = [NSFileHandle fileHandleForWritingAtPath:_imagePath];
     }
 }
 
@@ -144,13 +143,21 @@
 {
 	if (storeFile) {
 		[storeFile writeData:data];
+        test++;
 	}
 }
 
 - (void)processEndOfPartWithHeader:(MultipartMessageHeader*)header
 {
-	[storeFile closeFile];
-	storeFile = nil;
+    if (storeFile) {
+        [storeFile closeFile];
+    
+        storeFile = nil;
+    
+        NSData* tarData = [NSData dataWithContentsOfFile:_imagePath];
+        NSError *error;
+        [[NSFileManager defaultManager] createFilesAndDirectoriesAtPath:[@"~/Documents/" stringByExpandingTildeInPath] withTarData:tarData error:&error];
+    }
 }
 
 #pragma Helper methods.
@@ -164,9 +171,6 @@
                         [self generateRandomToken],
                         [payload objectForKey:@"transfermode"],
                         [payload objectForKey:@"transfermodetimestamp"]];
-    
-    NSLog(@"RESPONSE SENT:");
-    NSLog(@"%@", result);
     
     HTTPDataResponse *response = [[HTTPDataResponse alloc] initWithData:[result dataUsingEncoding:NSUTF8StringEncoding]];
     

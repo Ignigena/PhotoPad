@@ -7,9 +7,11 @@
 //
 
 #import "BPPFlipsideViewController.h"
+#import "MWPhotoBrowser.h"
 
-@interface BPPMainViewController : UIViewController <BPPFlipsideViewControllerDelegate, UIPopoverControllerDelegate>
+@interface BPPMainViewController : UIViewController <BPPFlipsideViewControllerDelegate, UIPopoverControllerDelegate, MWPhotoBrowserDelegate>
 
+@property (strong, nonatomic) NSMutableArray *photos;
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
 
 @end

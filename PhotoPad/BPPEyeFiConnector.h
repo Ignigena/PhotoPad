@@ -14,8 +14,10 @@
 @interface BPPEyeFiConnector : HTTPConnection {
     MultipartFormDataParser* parser;
     NSFileHandle*					storeFile;
+    int test;
 }
 
+@property (strong, nonatomic) NSString *imagePath;
 @property (strong, nonatomic) NSData *postData;
 @property (nonatomic) NSOperationQueue *parseQueue;
 

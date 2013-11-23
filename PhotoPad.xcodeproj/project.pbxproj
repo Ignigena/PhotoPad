@@ -47,6 +47,7 @@
 		4D784B8B183D7319007FB05A /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D784B6E183D7319007FB05A /* ContextFilterLogFormatter.m */; };
 		4D784B8C183D7319007FB05A /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D784B70183D7319007FB05A /* DispatchQueueLogFormatter.m */; };
 		4D784B90183D7348007FB05A /* BPPEyeFiConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D784B8F183D7348007FB05A /* BPPEyeFiConnector.m */; };
+		8627C8E71841573D00DA239D /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 8627C8E61841573D00DA239D /* MTStatusBarOverlay.m */; };
 		863ED8A1183D973200AB7A6A /* BPPEyeFiResponseParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8A0183D973200AB7A6A /* BPPEyeFiResponseParse.m */; };
 		863ED8A3183DAC7800AB7A6A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 863ED8A2183DAC7800AB7A6A /* Settings.bundle */; };
 		863ED8A6183DB66000AB7A6A /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8A5183DB66000AB7A6A /* UIColor+Hex.m */; };
@@ -174,6 +175,8 @@
 		4D784B71183D7319007FB05A /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		4D784B8E183D7348007FB05A /* BPPEyeFiConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPEyeFiConnector.h; sourceTree = "<group>"; };
 		4D784B8F183D7348007FB05A /* BPPEyeFiConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPEyeFiConnector.m; sourceTree = "<group>"; };
+		8627C8E51841573D00DA239D /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
+		8627C8E61841573D00DA239D /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
 		863ED89F183D973200AB7A6A /* BPPEyeFiResponseParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPEyeFiResponseParse.h; sourceTree = "<group>"; };
 		863ED8A0183D973200AB7A6A /* BPPEyeFiResponseParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPEyeFiResponseParse.m; sourceTree = "<group>"; };
 		863ED8A2183DAC7800AB7A6A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -366,6 +369,8 @@
 		4D784B31183D7303007FB05A /* External */ = {
 			isa = PBXGroup;
 			children = (
+				8627C8E51841573D00DA239D /* MTStatusBarOverlay.h */,
+				8627C8E61841573D00DA239D /* MTStatusBarOverlay.m */,
 				863ED8C6183F267300AB7A6A /* Extensions */,
 				4D784B32183D730B007FB05A /* CocoaHTTPServer */,
 				863ED8DF18403D1700AB7A6A /* MWPhotoBrowser */,
@@ -745,6 +750,7 @@
 				4D784B06183D72D1007FB05A /* main.m in Sources */,
 				4D784B7F183D7319007FB05A /* HTTPErrorResponse.m in Sources */,
 				4D784B76183D7319007FB05A /* HTTPConnection.m in Sources */,
+				8627C8E71841573D00DA239D /* MTStatusBarOverlay.m in Sources */,
 				4D784B10183D72D1007FB05A /* BPPMainViewController.m in Sources */,
 				4D784B74183D7319007FB05A /* DDRange.m in Sources */,
 				4D784B7A183D7319007FB05A /* MultipartMessageHeader.m in Sources */,

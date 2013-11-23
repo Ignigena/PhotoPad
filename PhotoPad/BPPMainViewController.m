@@ -75,6 +75,8 @@
 {
     [self.photos addObject: [notification.userInfo objectForKey:@"path"]];
     [self.galleryView reloadData];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"EyeFiCommunication" object:nil userInfo:[NSDictionary dictionaryWithObject:@"GalleryUpdated" forKey:@"method"]];
 }
 
 #pragma mark - Photo Gallery

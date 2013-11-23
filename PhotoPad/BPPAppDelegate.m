@@ -22,8 +22,33 @@
 	[_httpServer setPort:59278];
     [_httpServer start:nil];
     
+    // Register for EyeFi communication notifications.
+    _overlay = [MTStatusBarOverlay sharedInstance];
+    _overlay.animation = MTStatusBarOverlayAnimationNone;
+    _overlay.delegate = self;
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(updateEyeFiStatus:)
+                                                name:@"EyeFiCommunication"
+                                              object:nil];
+    
     // Override point for customization after application launch.
     return YES;
+}
+
+- (void)updateEyeFiStatus:(NSNotification *)notification
+{
+    NSLog(@"%@", [notification.userInfo objectForKey:@"method"]);
+    
+    if ([[notification.userInfo objectForKey:@"method"] isEqualToString:@"GalleryUpdated"]) {
+        [_overlay postFinishMessage:@"New Photo Added" duration:5];
+        return;
+    }
+    
+    if ([[notification.userInfo objectForKey:@"method"] isEqualToString:@"MarkLastPhotoInRoll"]) {
+        [_overlay postMessage:@"Uncompressing Photo"];
+    } else {
+        [_overlay postMessage:@"Copying New Photo"];
+    }
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

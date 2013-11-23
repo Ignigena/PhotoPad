@@ -91,6 +91,7 @@
 		863ED93318403D1700AB7A6A /* MWPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 863ED91718403D1700AB7A6A /* MWPhotoBrowser.bundle */; };
 		863ED9391840502100AB7A6A /* NSFileManager+Tar.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED9381840502100AB7A6A /* NSFileManager+Tar.m */; };
 		863ED93C1840532500AB7A6A /* NSFileManager+EyeFi.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED93B1840532500AB7A6A /* NSFileManager+EyeFi.m */; };
+		863ED9421840608900AB7A6A /* BPPGalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED9411840608900AB7A6A /* BPPGalleryCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -253,6 +254,8 @@
 		863ED9381840502100AB7A6A /* NSFileManager+Tar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Tar.m"; sourceTree = "<group>"; };
 		863ED93A1840532500AB7A6A /* NSFileManager+EyeFi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+EyeFi.h"; sourceTree = "<group>"; };
 		863ED93B1840532500AB7A6A /* NSFileManager+EyeFi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+EyeFi.m"; sourceTree = "<group>"; };
+		863ED9401840608900AB7A6A /* BPPGalleryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPGalleryCell.h; sourceTree = "<group>"; };
+		863ED9411840608900AB7A6A /* BPPGalleryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPGalleryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +333,8 @@
 				4D784B0B183D72D1007FB05A /* Main.storyboard */,
 				4D784B0E183D72D1007FB05A /* BPPMainViewController.h */,
 				4D784B0F183D72D1007FB05A /* BPPMainViewController.m */,
+				863ED9401840608900AB7A6A /* BPPGalleryCell.h */,
+				863ED9411840608900AB7A6A /* BPPGalleryCell.m */,
 				4D784B11183D72D1007FB05A /* BPPFlipsideViewController.h */,
 				4D784B12183D72D1007FB05A /* BPPFlipsideViewController.m */,
 				4D784B14183D72D1007FB05A /* Images.xcassets */,
@@ -767,6 +772,7 @@
 				4D784B7C183D7319007FB05A /* HTTPAsyncFileResponse.m in Sources */,
 				863ED92918403D1700AB7A6A /* SDWebImageDecoder.m in Sources */,
 				4D784B7D183D7319007FB05A /* HTTPDataResponse.m in Sources */,
+				863ED9421840608900AB7A6A /* BPPGalleryCell.m in Sources */,
 				4D784B78183D7319007FB05A /* HTTPServer.m in Sources */,
 				4D784B8A183D7319007FB05A /* DDTTYLogger.m in Sources */,
 				4D784B8C183D7319007FB05A /* DispatchQueueLogFormatter.m in Sources */,

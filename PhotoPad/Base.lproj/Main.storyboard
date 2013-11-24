@@ -59,7 +59,13 @@
                             <outlet property="delegate" destination="aVO-UE-KGo" id="8wK-HM-2R6"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Browse All Photos" id="dCg-GS-7iL"/>
+                    <navigationItem key="navigationItem" title="Browse All Photos" id="dCg-GS-7iL">
+                        <barButtonItem key="rightBarButtonItem" title="Help" id="sgi-o3-8Hf">
+                            <connections>
+                                <segue destination="qW3-xJ-JCb" kind="modal" identifier="showHelp" modalPresentationStyle="formSheet" id="EUS-yi-uL9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="galleryView" destination="mvz-d7-I6V" id="EnG-pH-arR"/>
                     </connections>
@@ -67,6 +73,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asY-HQ-Guj" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-102" y="-77"/>
+        </scene>
+        <!--Help View Controller-->
+        <scene sceneID="btI-81-mwW">
+            <objects>
+                <viewController modalPresentationStyle="formSheet" id="qW3-xJ-JCb" customClass="BPPHelpViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xew-at-A6y"/>
+                        <viewControllerLayoutGuide type="bottom" id="aOS-pB-Otb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DH7-Me-G9i">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H0C-Wc-D6R">
+                                <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="helpView" destination="H0C-Wc-D6R" id="H8P-ej-O73"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VEl-2h-HQo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="785" y="-399"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

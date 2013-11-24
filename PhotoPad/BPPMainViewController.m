@@ -49,6 +49,14 @@
     self.photoToolSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:nil];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    // Show help if the user has not defined a card key.
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"upload_key"]) {
+        [self performSegueWithIdentifier:@"showHelp" sender: self];
+    }
+}
+
 - (UIImage *)imageWithImage:(UIImage *)image scaledToFillSize:(CGSize)size
 {
     CGFloat scale = MAX(size.width/image.size.width, size.height/image.size.height);
@@ -80,7 +88,8 @@
     UIColor *navbarTint = [UIColor colorWithHexString: (navbarColor) ?: @"#000000"];
     
     [[UINavigationBar appearance] setBarTintColor: navbarTint];
-    [[UIToolbar appearance] setTintColor: navbarTint];
+    [[UIToolbar appearance] setTintColor: [UIColor whiteColor]];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = navbarTint;
     
     self.navigationController.navigationBar.topItem.title = (windowTitle) ?: @"Browse All Photos";

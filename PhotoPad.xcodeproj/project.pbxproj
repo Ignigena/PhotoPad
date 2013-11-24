@@ -48,6 +48,8 @@
 		4D784B8C183D7319007FB05A /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D784B70183D7319007FB05A /* DispatchQueueLogFormatter.m */; };
 		4D784B90183D7348007FB05A /* BPPEyeFiConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D784B8F183D7348007FB05A /* BPPEyeFiConnector.m */; };
 		8627C8E71841573D00DA239D /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 8627C8E61841573D00DA239D /* MTStatusBarOverlay.m */; };
+		8627C8EA1841679100DA239D /* BPPHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8627C8E91841679100DA239D /* BPPHelpViewController.m */; };
+		8627C8EC1842660D00DA239D /* Help.html in Resources */ = {isa = PBXBuildFile; fileRef = 8627C8EB1842660D00DA239D /* Help.html */; };
 		863ED8A1183D973200AB7A6A /* BPPEyeFiResponseParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8A0183D973200AB7A6A /* BPPEyeFiResponseParse.m */; };
 		863ED8A3183DAC7800AB7A6A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 863ED8A2183DAC7800AB7A6A /* Settings.bundle */; };
 		863ED8A6183DB66000AB7A6A /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 863ED8A5183DB66000AB7A6A /* UIColor+Hex.m */; };
@@ -177,6 +179,9 @@
 		4D784B8F183D7348007FB05A /* BPPEyeFiConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPEyeFiConnector.m; sourceTree = "<group>"; };
 		8627C8E51841573D00DA239D /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
 		8627C8E61841573D00DA239D /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
+		8627C8E81841679100DA239D /* BPPHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPHelpViewController.h; sourceTree = "<group>"; };
+		8627C8E91841679100DA239D /* BPPHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPHelpViewController.m; sourceTree = "<group>"; };
+		8627C8EB1842660D00DA239D /* Help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Help.html; sourceTree = "<group>"; };
 		863ED89F183D973200AB7A6A /* BPPEyeFiResponseParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPEyeFiResponseParse.h; sourceTree = "<group>"; };
 		863ED8A0183D973200AB7A6A /* BPPEyeFiResponseParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPEyeFiResponseParse.m; sourceTree = "<group>"; };
 		863ED8A2183DAC7800AB7A6A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -327,6 +332,8 @@
 				4D784B0B183D72D1007FB05A /* Main.storyboard */,
 				4D784B0E183D72D1007FB05A /* BPPMainViewController.h */,
 				4D784B0F183D72D1007FB05A /* BPPMainViewController.m */,
+				8627C8E81841679100DA239D /* BPPHelpViewController.h */,
+				8627C8E91841679100DA239D /* BPPHelpViewController.m */,
 				863ED9401840608900AB7A6A /* BPPGalleryCell.h */,
 				863ED9411840608900AB7A6A /* BPPGalleryCell.m */,
 				863ED8A9183EC95B00AB7A6A /* EyeFi Responses */,
@@ -344,6 +351,7 @@
 				4D784B02183D72D1007FB05A /* InfoPlist.strings */,
 				4D784B05183D72D1007FB05A /* main.m */,
 				4D784B07183D72D1007FB05A /* PhotoPad-Prefix.pch */,
+				8627C8EB1842660D00DA239D /* Help.html */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -727,6 +735,7 @@
 				863ED8C3183F0BBA00AB7A6A /* GetPhotoStatus.xml in Resources */,
 				863ED8C5183F1FEA00AB7A6A /* UploadPhoto.xml in Resources */,
 				863ED8A8183EC90000AB7A6A /* StartSession.xml in Resources */,
+				8627C8EC1842660D00DA239D /* Help.html in Resources */,
 				863ED93318403D1700AB7A6A /* MWPhotoBrowser.bundle in Resources */,
 				863ED8A3183DAC7800AB7A6A /* Settings.bundle in Resources */,
 			);
@@ -767,6 +776,7 @@
 				863ED9421840608900AB7A6A /* BPPGalleryCell.m in Sources */,
 				4D784B78183D7319007FB05A /* HTTPServer.m in Sources */,
 				4D784B8A183D7319007FB05A /* DDTTYLogger.m in Sources */,
+				8627C8EA1841679100DA239D /* BPPHelpViewController.m in Sources */,
 				4D784B8C183D7319007FB05A /* DispatchQueueLogFormatter.m in Sources */,
 				863ED91E18403D1700AB7A6A /* MWTapDetectingImageView.m in Sources */,
 				863ED93218403D1700AB7A6A /* UIImageView+WebCache.m in Sources */,
